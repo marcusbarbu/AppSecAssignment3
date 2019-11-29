@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>SpellCheck</title>
+    </head>
+
+    <body>
+        <h1>SpellCheck</h1>
+        <a href="/"> <p>Home</p></a>
+        <a href="/register"> <p> Register? </p></a>
+
+        <textarea form="inform" id="inputtext" name="inputtext"></textarea>
+        <form action="/spell_check" method="POST" id="inform">
+            <input type="hidden" name="csrf" value="{{ csrf_token }}"/>
+            <input type="submit"/>
+        </form>
+
+        {% if inwords %}
+        <h2> Submitted Words: </h2>
+        <p> {{ inwords }} </p>
+        {% endif %}
+
+        {% if misspelled %}
+        <h2> Misspelled: </h2>
+        <p id="misspelled"> {{ misspelled }} </p>
+        {% endif %}
+    </body>
+</html>

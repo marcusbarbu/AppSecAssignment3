@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Regsitration</title>
+    </head>
+
+    <body>
+        <a href="/"><p>Home</p></a>
+        <h1>Register</h1>
+        <form name="form" action="/register" method="post">
+            <p>Username: </p><input type="text" name="uname" id="uname" />
+            <p>Password: </p><input type="password" name="pword" id="pword" />
+            <p>Phone-number: </p><input type="number" name="2fa" id="2fa" />
+            <input type="hidden" id="csrf" name="csrf" value="{{ csrf_token }}" />
+            <input type="submit" id="sub" value="Submit"/>
+        </form>
+        {% if reg_success == False %}
+            <p id="success" > failure </p>
+        {% elif reg_success == True %}
+            <p id="success"> success </p>
+            <a href="/login">Login</a>
+        {% endif %}
+    </body>
+</html>
