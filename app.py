@@ -230,12 +230,12 @@ def start_db():
 
 with app.app_context():
     start_db()
-    u = User.query.filter_by(uname="admin").first()
-    if not u:
-        u = User("admin", "12345678901", "Administrator@1", admin=True)
-        db.session.add(u)
-        db.session.commit()
-        db.session.refresh(u)
+    # u = User.query.filter_by(uname="admin").first()
+    # if not u:
+    #     u = User("admin", "12345678901", "Administrator@1", admin=True)
+    #     db.session.add(u)
+    #     db.session.commit()
+    #     db.session.refresh(u)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
