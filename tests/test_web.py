@@ -52,3 +52,14 @@ def test_spell_check(login):
     assert 'Submitted Words' in r.text
     assert test_text in r.text
     assert 'Misspelled' in r.text
+
+
+@pytest.fixture
+def admin_login():
+    s = requests.Session()
+    r = s.get('http://localhost:5000/login')
+    csrf = get_csrf(r.text)
+    data = {'uname':'admin','pword':'Administrator@1','2fa':'12345678901','csrf':csrf}
+    r = s.post('http://localhost:5000/login',data=data)
+    assert 'success' in r.text
+    return s
