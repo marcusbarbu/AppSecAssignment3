@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Admin History</title>
+    </head>
+
+    <body>
+        <h1>AdminHistory</h1>
+        <a href="/"> <p>Home</p></a>
+        <a href="/register"> <p> Register? </p></a>
+        <form name="form" action="/history" method="post">
+            <p>Username: </p><input type="text" name="uname" id="userquery" />
+            <input type="hidden" id="csrf" name="csrf" value="{{ csrf_token }}" />
+            <input type="submit" id="sub" value="Submit"/>
+        </form>
+
+        <p id="numqueries">{{ count }}</p>
+        <ul>
+            {% for id,user in data %}
+            <li>User: {{ user }} <a href="/history/query{{ id }}" id="query{{ id }}">query {{ id }} </a></li>
+            {% endfor %}
+        </ul>
+
+    </body>
+</html>

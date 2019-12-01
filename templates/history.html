@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>History</title>
+    </head>
+
+    <body>
+        <h1>SpellCheck</h1>
+        <a href="/"> <p>Home</p></a>
+        <a href="/register"> <p> Register? </p></a>
+
+        <p id="numqueries">{{ count }}</p>
+        <ul>
+            {% for id in data %}
+            <li><a href="/history/{{ id }}" id="query{{ id }}">query {{ id }} </a></li>
+            {% endfor %}
+        </ul>
+
+    </body>
+</html>

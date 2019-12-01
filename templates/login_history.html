@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Admin History</title>
+    </head>
+
+    <body>
+        <h1>AdminHistory</h1>
+        <a href="/"> <p>Home</p></a>
+        <a href="/register"> <p> Register? </p></a>
+        <form name="form" action="/login_history" method="post">
+            <p>UserID: </p><input type="text" name="userid" id="userid" />
+            <input type="hidden" id="csrf" name="csrf" value="{{ csrf_token }}" />
+            <input type="submit" id="sub" value="Submit"/>
+        </form>
+
+        <p id="numqueries">{{ count }}</p>
+        <ul>
+        {% for id, user, in, out, active in data %}
+            <li id="login{{ id }}"><ul>
+                <li>{{ id }}</li>
+                <li>{{ user }}</li>
+                <li id="login{{ id }}_time">{{ in }}</li>
+                {% if out == None %}
+                <li id="logout{{ id }}_time">N/A</li>
+                {% else %}
+                <li id="logout{{ id }}_time">{{ out }}</li>
+                {% endif %}
+                <li>{{ active }}</li>
+            </ul></li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

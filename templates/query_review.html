@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>SpellCheck</title>
+    </head>
+
+    <body>
+        <h1>Query Review</h1>
+        <h2 id="queryid">{{ id }}</h2>
+        <a href="/"> <p>Home</p></a>
+        <a href="/register"> <p> Register? </p></a>
+
+        <h2 id="username">{{ username }}</h2>
+        {% if inwords %}
+        <h2> Submitted Words: </h2>
+        <p id="querytext"> {{ inwords }} </p>
+        {% endif %}
+
+        {% if misspelled %}
+        <h2> Misspelled: </h2>
+        <p id="queryresults"> {{ misspelled }} </p>
+        {% endif %}
+    </body>
+</html>
