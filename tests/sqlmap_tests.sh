@@ -14,7 +14,5 @@ do
     cmd=$sqlmap$target$payload
     sec="\""
     cmd=${cmd//\'/$sec}
-    echo $cmd > $i.sh
-    i=$i+1
     yes | eval $cmd
 done

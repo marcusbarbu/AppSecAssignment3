@@ -236,12 +236,6 @@ with app.app_context():
         db.session.add(u)
         db.session.commit()
         db.session.refresh(u)
-    u = User.query.filter_by(uname='aa').first()
-    if not u:
-        u = User("aa", "1231", "asdf", admin=True)
-        db.session.add(u)
-        db.session.commit()
-        db.session.refresh(u)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
