@@ -10,7 +10,7 @@ class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     uname = db.Column(db.String(128), unique=True)
-    phone = db.Column(db.String(30), unique=True)
+    phone = db.Column(db.String(30))
     hash = db.Column(db.String(256))
     admin = db.Column(db.Boolean, default=False)
 
